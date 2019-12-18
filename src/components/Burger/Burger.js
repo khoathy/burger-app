@@ -4,12 +4,22 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css'
 
 const burger = (props) => {
-    const ingredientsArr = Object.keys(props.ingredients)
+    const ingredientsList = Object.keys(props.ingredients)
         .map(ingKey => {
             return [...Array(props.ingredients[ingKey])].map((_,i) => {
                 return <BurgerIngredient key={ingKey + i} type={ingKey} />;
             })
         });
+    
+    //flatten array
+    let ingredientsArr = ingredientsList.reduce((accumulator,current) => {
+        return accumulator.concat(current)
+    },[]);
+
+    // Request user to add ingredients when there is no ingredient yet
+    if (ingredientsArr.length === 0) {
+        ingredientsArr = <p>Please add ingredients to your burger!</p>
+    }
 
 
 	return (
