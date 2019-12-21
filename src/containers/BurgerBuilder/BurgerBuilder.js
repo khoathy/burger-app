@@ -14,11 +14,19 @@ class BurgerBuilder extends Component {
         }
     }
 
+    addIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        const updatedCount = oldCount + 1;
+        const updatedIngredients = {...this.state.ingredients};
+        updatedIngredients[type] = updatedCount;
+        this.setState({ingredients: updatedIngredients});
+    }
+
     render () {
         return (
             <Aux>
                 <Burger ingredients = {this.state.ingredients}/>
-                <BuildControls />
+                <BuildControls ingredientAdded={this.addIngredientHandler} />
             </Aux>
         )
     }
