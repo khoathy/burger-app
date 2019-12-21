@@ -156,5 +156,17 @@
     background: #db4332;
     margin: 2% auto;
     border-radius: 22px 22px 10px 10px;
+    position: relative;
 }
 
+.Tomato::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+    right: 0;
+    background-color: #f76a5b;
+    height: 80%;
+    width: 2%;
+    border-radius: 60% 60% 35% 35%;
+}
