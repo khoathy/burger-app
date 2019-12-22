@@ -162,7 +162,7 @@
 .Tomato::after {
     content: "";
     position: absolute;
-    left: 25%;
+    left: 35%;
     bottom: 10%;
     right: 0;
     background-color: #f76a5b;
