@@ -72,7 +72,8 @@ class BurgerBuilder extends Component {
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
                     removeDisabled = {removeDisabled}
-                    addDisabled = {addDisabled} />
+                    addDisabled = {addDisabled}
+                    price = {this.state.totalPrice} />
             </Aux>
         )
     }

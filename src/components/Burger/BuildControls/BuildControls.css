@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
-    
+    padding: 10px 0;    
+}
+.TotalPrice { 
+    font-size: 130%;
 }

@@ -22,13 +22,12 @@
 }
 
 .BuildControl button:disabled {
-    background-color: #a5a5a4;
-    color: #e4e4e4;
+    background-color: #d3d3d3;
+    color: #ebeaea;
     cursor: default;
 }
 
 .BuildControl button:hover:disabled {
-    background-color: #f4f4f4;
     color: #b6b5b5;
     cursor: not-allowed;
 }
