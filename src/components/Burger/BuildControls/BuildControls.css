@@ -6,6 +6,48 @@
     align-items: center;
     padding: 10px 0;    
 }
+
 .TotalPrice { 
     font-size: 130%;
+}
+
+
+.OrderButton {
+    background-color: #cdfec7;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px #e1ddda;
+    font-family: inherit;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    margin: 15px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    color: #1c6d19;
+}
+
+.OrderButton:hover, .OrderButton:active {
+    background-color: #a7e09f;
+}
+
+.OrderButton:disabled {
+    background-color: #bfc0bf;
+    cursor: not-allowed;
+}
+
+.OrderButton:not(:disabled) {
+    animation: enable 0.3s linear;
+}
+
+@keyframes enable {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
