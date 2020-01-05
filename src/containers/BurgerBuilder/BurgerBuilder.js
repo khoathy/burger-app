@@ -73,8 +73,14 @@ class BurgerBuilder extends Component {
         this.updateOrderableState (updatedIngredients);
     }
 
+    // show Summary when click order button
     showSummaryHandler = () => {
         this.setState({showSummary:true});
+    }
+
+    // hide Summary when click backdrop
+    hideSummaryHandler = () => {
+        this.setState({showSummary:false});
     }
 
     render () {
@@ -88,7 +94,7 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal show = {this.state.showSummary}>
+                <Modal show = {this.state.showSummary} modalClosed = {this.hideSummaryHandler}>
                     <OrderSummary ingredients = {this.state.ingredients}/>
                 </Modal>
                 <Burger ingredients = {this.state.ingredients}/>
