@@ -24,6 +24,7 @@ class BurgerBuilder extends Component {
         },
         totalPrice: 3,
         orderable: false,
+        showSummary: false,
     }
 
     updateOrderableState = (ingredients) => {
@@ -72,6 +73,10 @@ class BurgerBuilder extends Component {
         this.updateOrderableState (updatedIngredients);
     }
 
+    showSummaryHandler = () => {
+        this.setState({showSummary:true});
+    }
+
     render () {
         const removeDisabled = {...this.state.ingredients};
         const addDisabled = {...this.state.ingredients};
@@ -83,7 +88,7 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal>
+                <Modal show = {this.state.showSummary}>
                     <OrderSummary ingredients = {this.state.ingredients}/>
                 </Modal>
                 <Burger ingredients = {this.state.ingredients}/>
@@ -93,7 +98,8 @@ class BurgerBuilder extends Component {
                     removeDisabled = {removeDisabled}
                     addDisabled = {addDisabled}
                     price = {this.state.totalPrice}
-                    orderable = {this.state.orderable} />
+                    orderable = {this.state.orderable}
+                    orderSummary = {this.showSummaryHandler} />
             </Aux>
         )
     }
