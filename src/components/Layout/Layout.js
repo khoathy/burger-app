@@ -4,9 +4,12 @@ import Aux from '../../hoc/Aux';
 
 import classes from './Layout.css';
 
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+
 const layout = (props) => (
     <Aux>
-        <div>Toolbar, SideDrawer, Backdrop</div>
+        <Toolbar />
+        <div> SideDrawer, Backdrop</div>
         <main className={classes.Content}>
             {props.children}
         </main>
