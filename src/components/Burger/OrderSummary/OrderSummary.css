@@ -8,3 +8,8 @@
     margin-left: -10%;
     display: inline-block;
 }
+
+.TotalPrice {
+    font-size: 110%;
+    font-weight: 700;
+}
