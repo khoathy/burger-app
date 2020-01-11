@@ -1,6 +1,6 @@
 .SideDrawer {
     max-width: 70%;
-    width: 280px;
+    width: 220px;
     height: 100%;
     position: fixed;
     z-index: 200;
@@ -28,5 +28,6 @@
 
 
 .Logo {
-    height: 11%;
+    height: 15%;
+    margin-bottom: 24px;
 }
