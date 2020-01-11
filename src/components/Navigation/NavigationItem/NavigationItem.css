@@ -1,9 +1,10 @@
 .NavigationItem {
-    margin: 0;
+    margin: 10px 0;
     box-sizing: border-box;
     display: flex;
     height: 100%;
     align-items: center;
+    min-width: fit-content;
 }
 
 .NavigationItem a {
@@ -21,4 +22,23 @@
 .NavigationItem a.active {
     background-color: #cdf5c8;
     border-bottom: 3px solid #debe8e;
+}
+
+@media (min-width: 500px) {
+    .NavigationItem {
+        margin: 10px 0;
+        display: block;
+        width: 100%;
+    }
+    
+    .NavigationItem a {
+        width: 100%;
+    }
+    
+    .NavigationItem a:hover,
+    .NavigationItem a:active,
+    .NavigationItem a.active {
+        background-color: #cdf5c8;
+        border-bottom: 3px solid #debe8e;
+    }
 }
