@@ -91,6 +91,7 @@ class BurgerBuilder extends Component {
         //show spinner when loading
         this.setState({loading:true});
         
+        //example order
         const order = {
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
