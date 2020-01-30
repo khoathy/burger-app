@@ -19,7 +19,7 @@ class ContactData extends Component {
         event.preventDefault();
 
         //show spinner when loading
-        this.setState({loading:true});
+        this.setState({loading: true});
         
         //example order
         const order = {
