@@ -11,18 +11,17 @@ class Orders extends Component {
     componentDidMount() {
         axios.get('/orders.json')
         .then(res => {
+            //console.log(res.data);
+
             //turn the orders obj to an array
-            console.log(res.data);
             const fetchedOrders = [];
             for(let key in res.data) {
-                console.log(...res.data[key]);
                 fetchedOrders.push({
                     id: key, 
                     ...res.data[key]
                 });
             }
-            
-            this.setState({loading: false})
+            this.setState({loading: false, orders: fetchedOrders})
         })
         .catch(err => {
             this.setState({loading: false})
