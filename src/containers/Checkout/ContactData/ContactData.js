@@ -61,11 +61,19 @@ class ContactData extends Component {
         //show spinner when loading
         this.setState({loading: true});
         
-        //example order
+        //create form data
+        const formData = {};
+        for(let formElementId in this.state.orderForm) {
+            formData[formElementId] = this.state.orderForm[formElementId].value;
+        }
+
+        //store order data
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
+            orderData: formData
         }
+        
         //send post request
         axios.post('/orders.json', order)
             .then(response => {
@@ -99,7 +107,7 @@ class ContactData extends Component {
         }
         
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id} 
@@ -113,7 +121,7 @@ class ContactData extends Component {
                 <Input inputtype="input" type="email" name="email" placeholder="Your Email" />
                 <Input inputtype="input" type="text" name="street" placeholder="Street" />
                 <Input inputtype="input" type="text" name="postal" placeholder="Postal Code" /> */}
-                <Button btnType="Success" clicked={this.orderHandler}>Order</Button>
+                <Button btnType="Success">Order</Button>
             </form>    
         );
         if(this.state.loading) {
