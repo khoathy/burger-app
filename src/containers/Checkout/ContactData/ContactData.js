@@ -44,8 +44,8 @@ class ContactData extends Component {
                 elementType: 'select',
                 elementConfig: {
                     options: [
-                        {value: 'express', displayValue: 'Express'},
-                        {value: 'standard', displayValue: 'Standard' }
+                        {value: 'express', displayValue: 'Express shipping'},
+                        {value: 'standard', displayValue: 'Standard shipping' }
                     ]
                 },
                 value:''
@@ -76,10 +76,20 @@ class ContactData extends Component {
             .catch(error => {
                 this.setState({loading: false});
             });
+    }
 
+    inputChangedHandler = (event, inputId) => {
+        //console.log(event.target.value);
+
+        const updatedOrderForm = {...this.state.orderForm};
+        const updatedFormElement = {...updatedOrderForm[inputId]};
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputId] =  updatedFormElement;
+        this.setState({orderForm: updatedOrderForm});
     }
 
     render() {
+        //convert orderForm to array
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
             formElementsArray.push({
@@ -96,6 +106,7 @@ class ContactData extends Component {
                         elementType={formElement.config.elementType} 
                         elementConfig={formElement.config.elementConfig} 
                         value={formElement.config.value}
+                        changed={(event)=> this.inputChangedHandler(event,formElement.id)}
                     />
                 ))}
                 {/* <Input inputtype="input" type="text" name="name" placeholder="Your Name" />
