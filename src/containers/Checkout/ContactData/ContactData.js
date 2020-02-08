@@ -40,7 +40,9 @@ class ContactData extends Component {
                 },
                 value:'',
                 validation: {
-                    required: true
+                    required: true,
+                    minLength: 5,
+                    maxLength: 5
                 },
                 valid: false
             },
@@ -108,10 +110,18 @@ class ContactData extends Component {
 
     // check if input is valid
     checkValidity(value, requirement) {
-        let isValid = false;
+        let isValid = true;
 
         if(requirement.required) {
-            isValid = value.trim() !== '';
+            isValid = value.trim() !== '' && isValid;
+        }
+
+        if(requirement.minLength) {
+            isValid = value.length >= requirement.minLength && isValid
+        }
+
+        if(requirement.maxLength) {
+            isValid = value.length <= requirement.maxLength && isValid
         }
 
         return isValid;
@@ -122,7 +132,7 @@ class ContactData extends Component {
         //console.log(event.target.value);
         const updatedOrderForm = {...this.state.orderForm};
         const updatedFormElement = {...updatedOrderForm[inputId]};
-        
+
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value,updatedFormElement.validation)
         updatedOrderForm[inputId] =  updatedFormElement;
