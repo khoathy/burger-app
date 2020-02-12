@@ -159,6 +159,7 @@ class ContactData extends Component {
                         elementConfig={formElement.config.elementConfig} 
                         value={formElement.config.value}
                         changed={(event)=> this.inputChangedHandler(event,formElement.id)}
+                        invalid={!formElement.config.valid}
                     />
                 ))}
                 {/* <Input inputtype="input" type="text" name="name" placeholder="Your Name" />
