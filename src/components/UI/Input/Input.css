@@ -44,7 +44,7 @@
     text-align: center;
     width: 95%;
     margin: -15px auto 12px;
-    animation: show 0.1s ease;
+    animation: show 0.1s eases;
 }
 
 @keyframes show {
