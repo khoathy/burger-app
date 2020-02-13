@@ -19,20 +19,22 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                errorMsg: 'Please enter your Name'
             },
             street: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Street'
+                    placeholder: 'Street Address'
                 },
                 value:'',
                 validation: {
                     required: true
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                errorMsg: 'Please enter your Street Address'
             },
             zipCode: {
                 elementType: 'input',
@@ -47,7 +49,8 @@ class ContactData extends Component {
                     maxLength: 5
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                errorMsg: 'Please enter 5-number ZIP Code'
             },
             email: {
                 elementType: 'input',
@@ -60,7 +63,8 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                errorMsg: 'Please enter your Email'
             },
             delivery: {
                 elementType: 'select',
@@ -75,7 +79,8 @@ class ContactData extends Component {
                     required: true
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                errorMsg: 'Please select shipping'
             },
         },
         loading: false
@@ -168,6 +173,7 @@ class ContactData extends Component {
                         touched={formElement.config.touched}
                         changed={(event)=> this.inputChangedHandler(event,formElement.id)}
                         invalid={!formElement.config.valid}
+                        errorMsg={formElement.config.errorMsg}
                         
                     />
                 ))}

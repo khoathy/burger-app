@@ -1,7 +1,7 @@
 .Input {
     width: 100%;
-    padding: 10px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .Label {
@@ -36,5 +36,18 @@
 
 .Invalid {
     border: solid 2px #fa1d1d;
-    /* background-color: #faefef; */
+}
+
+.InvalidError {
+    color: #fa1d1d;
+    font-size: 90%;
+    text-align: center;
+    width: 95%;
+    margin: -15px auto 12px;
+    animation: show 0.1s ease;
+}
+
+@keyframes show {
+    from { opacity: 0}
+    to { opacity: 1}
 }

@@ -3,11 +3,18 @@ import React from 'react';
 import classes from './Input.css';
 
 const input = (props) => {
+
     let inputElement = null;
     const inputClasses = [classes.InputElement];
-    
+
+    let invalidError = null;
+
     if(props.invalid && props.touched) {
+        //add invalid class when input is invalid
         inputClasses.push(classes.Invalid);
+
+        //show error message if input is invalid
+        invalidError = <p className={classes.InvalidError}>{props.errorMsg}</p>
     }
 
     switch(props.elementType) {
@@ -48,9 +55,10 @@ const input = (props) => {
     }
 
     return (
-        <div>
+        <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
+            {invalidError}
         </div>
     )
 }
