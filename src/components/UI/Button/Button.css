@@ -13,6 +13,12 @@
     text-align: center;
 }
 
+.Button:disabled {
+    background-color: #bfc0bf;
+    color: #787d78;
+    cursor: not-allowed;
+}
+
 .Success {
     color: #0f9300;
     background-color: #d8f7d4;

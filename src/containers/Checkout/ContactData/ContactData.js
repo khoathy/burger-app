@@ -83,6 +83,7 @@ class ContactData extends Component {
                 errorMsg: 'Please select shipping'
             },
         },
+        formIsValid: false,
         loading: false
     }
 
@@ -149,7 +150,14 @@ class ContactData extends Component {
         updatedOrderForm[inputId] =  updatedFormElement;
         console.log(updatedFormElement);
 
-        this.setState({orderForm: updatedOrderForm});
+        //overall form validation
+        let formIsValid = true;
+        for (let inputId in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputId].valid && formIsValid;
+        }
+        console.log(formIsValid);
+
+        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
 
     render() {
@@ -181,7 +189,7 @@ class ContactData extends Component {
                 <Input inputtype="input" type="email" name="email" placeholder="Your Email" />
                 <Input inputtype="input" type="text" name="street" placeholder="Street" />
                 <Input inputtype="input" type="text" name="postal" placeholder="Postal Code" /> */}
-                <Button btnType="Success">Order</Button>
+                <Button btnType="Success" disabled={!this.state.formIsValid}>Order</Button>
             </form>    
         );
 
