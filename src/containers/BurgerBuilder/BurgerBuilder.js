@@ -12,7 +12,7 @@ import * as actionTypes from '../../store/actions';
 class BurgerBuilder extends Component {
     state = {
         //totalPrice: 3,
-        orderable: false,
+        // orderable: false,
         showSummary: false,
         loading: false
     }
@@ -21,7 +21,7 @@ class BurgerBuilder extends Component {
         const sumOfIngredients = Object.keys(ingredients)
             .map(igKey => ingredients[igKey])
             .reduce((sum,el) => sum + el);
-        this.setState({orderable: sumOfIngredients > 0})
+        return sumOfIngredients > 0;
     }
 
     // Below codes are for when we do not use redux
@@ -123,7 +123,7 @@ class BurgerBuilder extends Component {
                     removeDisabled = {removeDisabled}
                     addDisabled = {addDisabled}
                     price = {this.props.price}
-                    orderable = {this.state.orderable}
+                    orderable = {this.updateOrderableState(this.props.ings)}
                     orderSummary = {this.showSummaryHandler} />
             </Aux>
         )
