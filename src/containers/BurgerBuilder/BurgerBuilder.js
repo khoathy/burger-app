@@ -74,25 +74,31 @@ class BurgerBuilder extends Component {
         this.setState({showSummary:false});
     }
 
-    // continue to order
+    // // if do not use redux , to continue to order
+    // orderContinueHandler = () => {
+    //     const queryParams = [];
+    //     for(let i in this.state.ingredients) {
+    //         queryParams.push(encodeURIComponent(i)+ "=" + encodeURIComponent(this.state.ingredients[i]));
+    //     }
+    //     queryParams.push('price=' + this.state.totalPrice);
+    //     const queryString = queryParams.join('&');
+    //     this.props.history.push({
+    //         pathname: '/checkout',
+    //         search: '?' + queryString
+    //     });
+    // }
+
+    
+    //continue to order
     orderContinueHandler = () => {
-        const queryParams = [];
-        for(let i in this.state.ingredients) {
-            queryParams.push(encodeURIComponent(i)+ "=" + encodeURIComponent(this.state.ingredients[i]));
-        }
-        queryParams.push('price=' + this.state.totalPrice);
-        const queryString = queryParams.join('&');
-        this.props.history.push({
-            pathname: '/checkout',
-            search: '?' + queryString
-        });
+        this.props.history.push('/checkout');
     }
 
     render () {
         //Disable the buttons when there are no ingredients or too many ingredients added
         const removeDisabled = {...this.props.ings};
         
-        const addDisabled = {...this.state.ingredients};
+        const addDisabled = {...this.props.ings};
         for (let key in removeDisabled) {
             removeDisabled[key] = removeDisabled[key] <= 0;
         }
