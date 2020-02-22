@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import classes from './Orders.css';
+
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 
@@ -30,7 +33,7 @@ class Orders extends Component {
 
     render() {
         return(
-            <div>
+            <div className={classes.Orders}>
                 {this.state.orders.map(order=> (
                     <Order 
                         key={order.id}
